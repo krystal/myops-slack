@@ -6,7 +6,7 @@ Web Hook URL on various events. The supported events currently include:
 * Whenever a collection changes its trigger
 * Whenever a server status changes (up or down)
 
-![Screenshot](https://share.adam.ac/16/2UM9cdnE.png)
+![Screenshot](https://share.adam.ac/16/9GRhQcuk.png)
 
 ## Installation
 
