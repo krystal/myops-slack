@@ -15,6 +15,7 @@ module MyOps
         server_link = "#{MyOps.host_with_protocol}/servers/#{collection.server_id}"
         collection_link = "#{MyOps.host_with_protocol}/servers/#{collection.server_id}/collections/#{collection.id}"
         attachment = {
+          :fallback => "#{collection.server.hostname} #{collection.status}: #{collection.message}",
           :color => Trigger::COLORS[collection.color] || '#000000',
           :footer => "Trigger Notification | Posted by MyOps at #{MyOps.host}",
           :fields => [
@@ -31,6 +32,7 @@ module MyOps
       def status_change(status)
         link = "#{MyOps.host_with_protocol}/#{status.owner_type.downcase.tableize}/#{status.owner_id}"
         attachment = {
+          :fallback => "#{status.owner.hostname} is #{status.type.upcase}",
           :color => status.type == 'Down' ? Trigger::COLORS['Red'] : Trigger::COLORS['Green'],
           :fields => [
             {:title => 'Device', :value => "<#{link}|#{status.owner.hostname}>", :short => true},
