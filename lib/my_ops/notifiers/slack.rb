@@ -21,7 +21,7 @@ module MyOps
           :fields => [
             {:title => 'Device', :value => "<#{server_link}|#{collection.server.hostname}>", :short => true},
             {:title => 'Status', :value => collection.status, :short => true},
-            {:title => 'Collection', :value => "<#{collection_link}|#{collection.collector.name}>", :short => true},
+            {:title => 'Collection', :value => "<#{collection_link}|#{collection.collector_name}>", :short => true},
             collection.last_collection_value ? {:title => "Data", :value => "#{collection.last_collection_value.value} (#{collection.last_collection_value.comment})", :short => true} : nil,
             collection.message.present? ? {:title => 'Message', :value => collection.message} : nil,
           ].compact,
