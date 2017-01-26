@@ -11,7 +11,7 @@ module MyOps
         MyOps.module_config['myops-slack']
       end
 
-      def collection_trigger_change(collection)
+      def collection_alert_sent(collection, users)
         server_link = "#{MyOps.host_with_protocol}/servers/#{collection.server_id}"
         collection_link = "#{MyOps.host_with_protocol}/servers/#{collection.server_id}/collections/#{collection.id}"
         attachment = {
@@ -29,7 +29,7 @@ module MyOps
         send_slack_message(:attachments => [attachment])
       end
 
-      def status_change(status)
+      def status_change_alert_sent(status, users)
         link = "#{MyOps.host_with_protocol}/#{status.owner_type.downcase.tableize}/#{status.owner_id}"
         attachment = {
           :fallback => "#{status.owner.hostname} is #{status.type.upcase}",
